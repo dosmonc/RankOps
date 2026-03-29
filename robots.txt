@@ -1,0 +1,242 @@
+# robots.txt
+# RankOps — https://rankops.pages.dev
+# Updated: 2026-01-01
+# Charlotte, NC SEO, GEO & AI Search Optimization Agency
+
+# ═══════════════════════════════════════════════════════════
+# GLOBAL RULES — allow all compliant crawlers by default
+# ═══════════════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /*.json$
+Disallow: /cdn-cgi/
+
+# Crawl delay for generic bots (courtesy limit)
+Crawl-delay: 2
+
+# ═══════════════════════════════════════════════════════════
+# GOOGLE — full access, no crawl delay
+# ═══════════════════════════════════════════════════════════
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# BING / MICROSOFT — full access
+# (Bing powers ChatGPT browsing mode — critical for GEO)
+# ═══════════════════════════════════════════════════════════
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
+
+User-agent: msnbot
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: adidxbot
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# OPENAI / CHATGPT — explicitly welcome
+# GPTBot = ChatGPT training data crawler
+# ChatGPT-User = ChatGPT browsing mode
+# OAI-SearchBot = ChatGPT search indexing
+# ═══════════════════════════════════════════════════════════
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# PERPLEXITY AI — explicitly welcome
+# PerplexityBot = Perplexity's primary web crawler
+# ═══════════════════════════════════════════════════════════
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# ═══════════════════════════════════════════════════════════
+# ANTHROPIC / CLAUDE — explicitly welcome
+# ClaudeBot = Claude's web crawler
+# anthropic-ai = Anthropic training crawler
+# ═══════════════════════════════════════════════════════════
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Claude-Web
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# GOOGLE GEMINI / BARD — explicitly welcome
+# Google-Extended = Gemini AI training
+# ═══════════════════════════════════════════════════════════
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# ═══════════════════════════════════════════════════════════
+# META AI — explicitly welcome
+# ═══════════════════════════════════════════════════════════
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# APPLE — explicitly welcome
+# Applebot = Apple Search / Siri Knowledge
+# ═══════════════════════════════════════════════════════════
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# YOU.COM AI SEARCH — explicitly welcome
+# ═══════════════════════════════════════════════════════════
+
+User-agent: YouBot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# ═══════════════════════════════════════════════════════════
+# COHERE AI — explicitly welcome
+# ═══════════════════════════════════════════════════════════
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# ═══════════════════════════════════════════════════════════
+# STANDARD SEO TOOLS — allow (beneficial for monitoring)
+# ═══════════════════════════════════════════════════════════
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: DotBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 10
+
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 5
+
+# ═══════════════════════════════════════════════════════════
+# SOCIAL MEDIA CRAWLERS — allow (for link previews)
+# ═══════════════════════════════════════════════════════════
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# ═══════════════════════════════════════════════════════════
+# KNOWN SCRAPER / SPAM BOTS — disallow
+# ═══════════════════════════════════════════════════════════
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# ═══════════════════════════════════════════════════════════
+# SITEMAP LOCATION
+# ═══════════════════════════════════════════════════════════
+
+Sitemap: https://rankops.pages.dev/sitemap.xml
+
+# ═══════════════════════════════════════════════════════════
+# HOST DECLARATION
+# ═══════════════════════════════════════════════════════════
+
+Host: https://rankops.pages.dev
