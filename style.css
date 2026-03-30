@@ -166,13 +166,22 @@ nav.scrolled {
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--green);
 }
-
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--green);
+}
 .nav-cta-desktop {
   display: inline-block;
 }
@@ -1558,6 +1567,20 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================
+   COMPONENT PLACEHOLDERS
+============================================ */
+#nav-placeholder:empty {
+  min-height: 70px;
+  display: block;
+}
+
+#footer-placeholder:empty {
+  min-height: 300px;
+  display: block;
+  background: var(--bg);
 }
 
 /* ============================================

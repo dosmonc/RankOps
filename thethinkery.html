@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RankOps — The Thinkery | AI Strategy & SEO Insights</title>
+    <meta name="description" content="Deep-dive AI strategy, SEO breakdowns, GEO playbooks, and growth hacking insights. The Thinkery by Tyler Moncrieff — where AI meets execution." />
+    <meta name="keywords" content="AI strategy, SEO, GEO, AI search ranking, growth hacking, Tyler Moncrieff, The Thinkery, Charlotte NC" />
+    <meta name="author" content="Tyler Moncrieff" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rankops.pages.dev/thethinkery.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rankops.pages.dev/thethinkery.html" />
+    <meta property="og:title" content="The Thinkery | AI Strategy & SEO Insights" />
+    <meta property="og:description" content="AI strategy, GEO playbooks, and growth hacking insights by Tyler Moncrieff." />
+    <meta property="og:site_name" content="The Thinkery" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0D0D0D" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <!-- Main stylesheet for nav/footer -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+    
+    <!-- Thinkery-specific styles -->
+    <style>
+        /* Thinkery custom variables */
+        .thinkery-page {
+            --purple: #A855F7;
+            --purple-glow: rgba(168,85,247,0.15);
+            --cyan-t: #00F0FF;
+            --cyan-glow: rgba(0,240,255,0.15);
+            --pink: #FF2E97;
+            --pink-glow: rgba(255,46,151,0.15);
+            --font-mono-t: 'JetBrains Mono', monospace;
+            --font-sans-t: 'Inter', sans-serif;
+        }
+
+        /* Animations */
+        @keyframes fade-up-t { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float-t { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes blink-t { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        @keyframes pulse-glow-t { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.8; } }
+        @keyframes gradient-shift-t { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes particle-float-t { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+
+        .thinkery-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .thinkery-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Hero */
+        .thinkery-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            overflow: hidden;
+        }
+        .thinkery-hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+        .thinkery-hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+        .thinkery-hero-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation: float-t 8s ease-in-out infinite;
+        }
+        .thinkery-hero-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: float-t 6s ease-in-out infinite 2s;
+        }
+        .thinkery-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .thinkery-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--purple);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particle-float-t 15s linear infinite;
+        }
+        .thinkery-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .thinkery-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--purple);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            animation: fade-up-t 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+        }
+        .thinkery-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(168,85,247,0.1);
+            border: 1px solid var(--purple-glow);
+            border-radius: 100px;
+            font-size: 9px;
+        }
+        .thinkery-status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--purple);
+            border-radius: 50%;
+            animation: blink-t 2s infinite;
+        }
+        .thinkery-headline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(36px, 7vw, 72px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+            color: var(--text);
+            opacity: 0;
+            animation: fade-up-t 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+        }
+        .thinkery-headline .g { color: var(--purple); text-shadow: 0 0 40px var(--purple-glow); }
+        .thinkery-cursor {
+            display: inline-block;
+            width: 4px;
+            height: 0.8em;
+            background: var(--purple);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink-t 1s step-end infinite;
+            box-shadow: 0 0 10px var(--purple);
+        }
+        .thinkery-sub {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--text2);
+            max-width: 580px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fade-up-t 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+        }
+        .thinkery-sub strong { color: var(--text); font-weight: 600; }
+        .thinkery-hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fade-up-t 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+        }
+
+        /* Thinkery Buttons */
+        .thinkery-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 16px 32px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            position: relative;
+            overflow: hidden;
+        }
+        .thinkery-btn-purple {
+            background: var(--purple);
+            color: #fff;
+            box-shadow: 0 0 0 1px var(--purple), 0 0 30px rgba(168,85,247,0.3);
+        }
+        .thinkery-btn-purple:hover {
+            background: #b970fa;
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 1px var(--purple), 0 0 40px rgba(168,85,247,0.4);
+        }
+        .thinkery-btn-ghost {
+            background: transparent;
+            color: var(--text2);
+            border: 1px solid var(--border);
+        }
+        .thinkery-btn-ghost:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            transform: translateY(-3px);
+        }
+
+        /* Section styling */
+        .thinkery-section {
+            padding: clamp(80px, 12vw, 140px) 0;
+        }
+        .thinkery-section-alt {
+            background: linear-gradient(180deg, var(--bg2), var(--bg));
+        }
+        .thinkery-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--purple);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .thinkery-tag::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), #00F0FF);
+            border-radius: 1px;
+        }
+        .thinkery-section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .thinkery-section-sub {
+            font-size: clamp(15px, 2vw, 17px);
+            color: var(--text2);
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        /* Topics Grid */
+        .thinkery-topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .thinkery-topic-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+        }
+        .thinkery-topic-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(168,85,247,0.3);
+        }
+        .thinkery-topic-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .thinkery-topic-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .thinkery-topic-card p {
+            font-size: 12px;
+            color: var(--text2);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .thinkery-topic-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--purple);
+            letter-spacing: 1px;
+        }
+
+        /* Insights Grid */
+        .thinkery-insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .thinkery-insight-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            text-decoration: none;
+            display: block;
+        }
+        .thinkery-insight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), #00F0FF);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        .thinkery-insight-card:hover {
+            border-color: rgba(168,85,247,0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 64px rgba(0,0,0,0.5);
+        }
+        .thinkery-insight-card:hover::before {
+            transform: scaleX(1);
+        }
+        .thinkery-insight-img {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        .thinkery-insight-img.geo { background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(0,240,255,0.1)); }
+        .thinkery-insight-img.seo { background: linear-gradient(135deg, rgba(57,255,20,0.2), rgba(0,240,255,0.1)); }
+        .thinkery-insight-img.local { background: linear-gradient(135deg, rgba(255,46,151,0.2), rgba(168,85,247,0.1)); }
+        .thinkery-insight-img.ai { background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(57,255,20,0.1)); }
+        .thinkery-insight-body {
+            padding: 24px;
+        }
+        .thinkery-insight-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 2px;
+        }
+        .thinkery-insight-tag.geo { color: var(--purple); background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2); }
+        .thinkery-insight-tag.seo { color: var(--green); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.2); }
+        .thinkery-insight-tag.local { color: #FF2E97; background: rgba(255,46,151,0.1); border: 1px solid rgba(255,46,151,0.2); }
+        .thinkery-insight-tag.ai { color: #00F0FF; background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.2); }
+        .thinkery-insight-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .thinkery-insight-card p {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .thinkery-insight-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .thinkery-insight-read {
+            color: var(--purple);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+        .thinkery-insight-card:hover .thinkery-insight-read {
+            gap: 12px;
+        }
+
+        /* Newsletter */
+        .thinkery-newsletter-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 60px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .thinkery-newsletter-box h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .thinkery-newsletter-box p {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 500px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .thinkery-newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0;
+        }
+        .thinkery-newsletter-form input {
+            flex: 1;
+            padding: 16px 20px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-right: none;
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            outline: none;
+        }
+        .thinkery-newsletter-form input:focus {
+            border-color: var(--purple);
+        }
+        .thinkery-newsletter-form input::placeholder {
+            color: #555;
+        }
+        .thinkery-newsletter-form button {
+            padding: 16px 28px;
+            background: var(--purple);
+            border: 1px solid var(--purple);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .thinkery-newsletter-form button:hover {
+            background: #b970fa;
+        }
+
+        @media (max-width: 768px) {
+            .thinkery-insights-grid { grid-template-columns: 1fr; }
+            .thinkery-newsletter-form { flex-direction: column; }
+            .thinkery-newsletter-form input { border-right: 1px solid var(--border); }
+            .thinkery-topics-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .thinkery-topics-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="thinkery-page">
+
+    <!-- NAV PLACEHOLDER - Loaded by components.js -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Hero -->
+    <section class="thinkery-hero">
+        <div class="thinkery-hero-grid"></div>
+        <div class="thinkery-hero-orb thinkery-hero-orb-1"></div>
+        <div class="thinkery-hero-orb thinkery-hero-orb-2"></div>
+        <div class="thinkery-particles" id="particles"></div>
+        <div class="container">
+            <div class="thinkery-hero-content">
+                <div class="thinkery-eyebrow">
+                    <span>// RankOps Presents</span>
+                    <span class="thinkery-status"><span class="thinkery-status-dot"></span> Live</span>
+                </div>
+                <h1 class="thinkery-headline">
+                    <span class="g">The</span> Thinkery<span class="thinkery-cursor"></span>
+                </h1>
+                <p class="thinkery-sub">
+                    <strong>SEO strategy, GEO optimization, and AI search ranking insights</strong> — written for businesses that want to dominate search. Where <strong>deep thinking</strong> meets <strong>relentless execution.</strong>
+                </p>
+                <div class="thinkery-hero-btns">
+                    <a href="#insights" class="thinkery-btn thinkery-btn-purple">Explore Insights →</a>
+                    <a href="#newsletter" class="thinkery-btn thinkery-btn-ghost">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Overview -->
+    <section class="thinkery-section" id="topics">
+        <div class="container">
+            <div class="thinkery-tag thinkery-reveal">Domains of Thought</div>
+            <h2 class="thinkery-section-title thinkery-reveal">What We <span style="color:var(--purple)">Think</span> About</h2>
+            <p class="thinkery-section-sub thinkery-reveal">Four pillars of content — each designed to help you dominate search in the AI era.</p>
+            <div class="thinkery-topics-grid">
+                <a href="blog/what-is-geo-generative-engine-optimization.html" class="thinkery-topic-card thinkery-reveal">
+                    <span class="thinkery-topic-icon">🤖</span>
+                    <h3>GEO Strategy</h3>
+                    <p>Generative Engine Optimization — how to get recommended by ChatGPT, Perplexity, and AI search.</p>
+                    <div class="thinkery-topic-count">3 ARTICLES</div>
+                </a>
+                <a href="blog/local-seo-charlotte-nc-complete-guide.html" class="thinkery-topic-card thinkery-reveal">
+                    <span class="thinkery-topic-icon">📍</span>
+                    <h3>Local SEO</h3>
+                    <p>Dominate Google Maps, local pack rankings, and "near me" searches in your market.</p>
+                    <div class="thinkery-topic-count">2 ARTICLES</div>
+                </a>
+                <a href="blog/seo-vs-geo-vs-ai-search-whats-the-difference.html" class="thinkery-topic-card thinkery-reveal">
+                    <span class="thinkery-topic-icon">📈</span>
+                    <h3>SEO vs GEO</h3>
+                    <p>Understanding the new search landscape — traditional SEO, GEO, and AI search optimization compared.</p>
+                    <div class="thinkery-topic-count">2 ARTICLES</div>
+                </a>
+                <a href="blog/how-to-rank-on-chatgpt-and-perplexity.html" class="thinkery-topic-card thinkery-reveal">
+                    <span class="thinkery-topic-icon">💻</span>
+                    <h3>AI Search Ranking</h3>
+                    <p>The playbook for getting cited by AI assistants — visibility in the new search paradigm.</p>
+                    <div class="thinkery-topic-count">2 ARTICLES</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Grid -->
+    <section class="thinkery-section thinkery-section-alt" id="insights">
+        <div class="container">
+            <div class="thinkery-tag thinkery-reveal">All Insights</div>
+            <h2 class="thinkery-section-title thinkery-reveal">The <span style="color:#00F0FF">Archive</span></h2>
+            <p class="thinkery-section-sub thinkery-reveal">Every article, breakdown, and playbook we've published. Deep dives on SEO, GEO, and AI search.</p>
+            
+            <div class="thinkery-insights-grid">
+                
+                <!-- What is GEO -->
+                <a href="blog/what-is-geo-generative-engine-optimization.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img geo">🤖</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag geo">GEO</span>
+                        <h3>What is GEO? The Complete Guide to Generative Engine Optimization</h3>
+                        <p>Generative Engine Optimization explained — how to optimize your presence so AI search engines recommend your business.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>12 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- How to Rank on ChatGPT -->
+                <a href="blog/how-to-rank-on-chatgpt-and-perplexity.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img ai">💬</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag ai">AI Search</span>
+                        <h3>How to Rank on ChatGPT and Perplexity: The Complete Playbook</h3>
+                        <p>The exact strategy to get your business cited by AI assistants. Step-by-step playbook for AI search visibility.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>14 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Why Invisible to AI -->
+                <a href="blog/why-your-business-is-invisible-to-ai-search.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img geo">👻</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag geo">GEO</span>
+                        <h3>Why Your Business is Invisible to AI Search (And How to Fix It)</h3>
+                        <p>If ChatGPT doesn't mention you, you're losing leads. Here's why you're invisible and the fix.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>11 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- SEO vs GEO vs AI -->
+                <a href="blog/seo-vs-geo-vs-ai-search-whats-the-difference.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img seo">⚖️</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag seo">SEO</span>
+                        <h3>SEO vs GEO vs AI Search: What's the Difference?</h3>
+                        <p>Confused about the new search landscape? We break down SEO, GEO, and AI search optimization.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>10 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Local SEO Charlotte -->
+                <a href="blog/local-seo-charlotte-nc-complete-guide.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img local">📍</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag local">Local SEO</span>
+                        <h3>Local SEO in Charlotte, NC: The Complete Guide for 2025</h3>
+                        <p>Dominate local search in Charlotte. Google Maps rankings, "near me" searches, and local pack dominance.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>15 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- GBP Optimization -->
+                <a href="blog/google-business-profile-optimization-2025.html" class="thinkery-insight-card thinkery-reveal">
+                    <div class="thinkery-insight-img local">🏢</div>
+                    <div class="thinkery-insight-body">
+                        <span class="thinkery-insight-tag local">Local SEO</span>
+                        <h3>Google Business Profile Optimization: The 2025 Complete Guide</h3>
+                        <p>Your GBP is your most valuable local SEO asset. Complete optimization guide for maximum visibility.</p>
+                        <div class="thinkery-insight-meta">
+                            <span>16 min read</span>
+                            <span class="thinkery-insight-read">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="thinkery-section" id="newsletter">
+        <div class="container">
+            <div class="thinkery-newsletter-box thinkery-reveal">
+                <h2>Get the Weekly <span style="color:var(--purple)">Signal</span></h2>
+                <p>One email per week. SEO strategies, GEO playbooks, and AI search tactics that actually work. No fluff. No spam.</p>
+                <form class="thinkery-newsletter-form" action="https://formspree.io/f/xdawppkw" method="POST">
+                    <input type="email" name="email" placeholder="you@example.com" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PLACEHOLDER - Loaded by components.js -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Particles
+        const pc = document.getElementById('particles');
+        if (pc) {
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'thinkery-particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 15 + 's';
+                p.style.animationDuration = (10 + Math.random() * 10) + 's';
+                const colors = ['#A855F7', '#00F0FF', '#39FF14', '#FF2E97'];
+                p.style.background = colors[Math.floor(Math.random() * colors.length)];
+                pc.appendChild(p);
+            }
+        }
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.thinkery-reveal').forEach(el => observer.observe(el));
+    </script>
+    <script src="components/components.js"></script>
+</body>
+</html>

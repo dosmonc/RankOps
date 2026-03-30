@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RankOps Hub | Your Digital Command Center</title>
+    <meta name="description" content="Tyler Moncrieff's central hub — every business, project, and platform link organized in one place. The RankOps ecosystem." />
+    <meta name="theme-color" content="#0D0D0D" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0D0D0D; --gun: #0a0a0a; --card: #111111;
+            --border: #1f1f1f;
+            --green: #39FF14; --green-glow: rgba(57,255,20,0.15);
+            --cyan: #00F0FF; --cyan-glow: rgba(0,240,255,0.15);
+            --pink: #FF2E97; --pink-glow: rgba(255,46,151,0.15);
+            --purple: #A855F7;
+            --text-primary: #fff; --text-secondary: #e5e5e5; --text-muted: #888; --text-dim: #555;
+            --font-mono: 'JetBrains Mono', monospace; --font-sans: 'Inter', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16,1,0.3,1);
+        }
+        html { scroll-behavior: smooth; }
+        body { background: var(--black); color: var(--text-secondary); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--green); color: var(--black); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--gun); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--green), var(--cyan)); border-radius: 3px; }
+        a { color: inherit; text-decoration: none; }
+        .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 clamp(20px,5vw,40px); }
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes particle-float { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.5; } 90% { opacity: 0.5; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+
+        .bg-particles { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+        .bg-particles .p { position: absolute; width: 2px; height: 2px; border-radius: 50%; animation: particle-float 20s linear infinite; }
+        .bg-grid { position: fixed; inset: 0; background-image: linear-gradient(rgba(57,255,20,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+
+        .header { text-align: center; padding: 80px 0 40px; position: relative; z-index: 1; }
+        .header-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0; animation: fade-up 0.6s var(--ease-out-expo) 0.1s forwards; }
+        .header-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+        .header h1 { font-family: var(--font-mono); font-size: clamp(32px, 8vw, 56px); font-weight: 800; color: var(--text-primary); line-height: 1.1; margin-bottom: 12px; opacity: 0; animation: fade-up 0.6s var(--ease-out-expo) 0.2s forwards; }
+        .header h1 .g { color: var(--green); text-shadow: 0 0 30px var(--green-glow); }
+        .header h1 .c { color: var(--cyan); }
+        .header-sub { font-size: 15px; color: var(--text-muted); max-width: 500px; margin: 0 auto 8px; opacity: 0; animation: fade-up 0.6s var(--ease-out-expo) 0.3s forwards; }
+        .header-tagline { font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); opacity: 0; animation: fade-up 0.6s var(--ease-out-expo) 0.4s forwards; }
+
+        .section { position: relative; z-index: 1; margin-bottom: 48px; }
+        .section-label { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; padding-left: 4px; display: flex; align-items: center; gap: 10px; }
+        .section-label::before { content: ''; width: 20px; height: 1px; }
+        .section-label.services::before { background: var(--green); }
+        .section-label.products::before { background: var(--cyan); }
+        .section-label.social::before { background: var(--pink); }
+        .section-label.tools::before { background: var(--purple); }
+
+        .links-grid { display: flex; flex-direction: column; gap: 10px; }
+        .link-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); transition: all 0.25s var(--ease-out-expo); cursor: pointer; text-decoration: none; position: relative; overflow: hidden; }
+        .link-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; transform: scaleY(0); transition: transform 0.25s; }
+        .link-card.services::before { background: var(--green); }
+        .link-card.products::before { background: var(--cyan); }
+        .link-card.social::before { background: var(--pink); }
+        .link-card.tools::before { background: var(--purple); }
+        .link-card:hover { border-color: rgba(255,255,255,0.1); transform: translateX(4px); background: rgba(17,17,17,0.9); }
+        .link-card:hover::before { transform: scaleY(1); }
+        .link-icon { font-size: 24px; flex-shrink: 0; width: 40px; text-align: center; }
+        .link-info { flex: 1; min-width: 0; }
+        .link-title { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+        .link-desc { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .link-url { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.5px; flex-shrink: 0; }
+        .link-arrow { font-size: 14px; color: var(--text-dim); transition: transform 0.2s, color 0.2s; flex-shrink: 0; }
+        .link-card:hover .link-arrow { transform: translateX(4px); }
+        .link-card.services:hover .link-arrow { color: var(--green); }
+        .link-card.products:hover .link-arrow { color: var(--cyan); }
+        .link-card.social:hover .link-arrow { color: var(--pink); }
+        .link-card.tools:hover .link-arrow { color: var(--purple); }
+
+        .footer { text-align: center; padding: 48px 0; position: relative; z-index: 1; border-top: 1px solid var(--border); }
+        .footer p { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 1px; }
+        .footer .tagline { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; background: linear-gradient(90deg, var(--green), var(--cyan), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 100%; animation: gradient-shift 4s ease infinite; }
+
+        @media (max-width: 600px) {
+            .link-url { display: none; }
+            .link-card { padding: 14px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV & MOBILE MENU - Loaded by components.js -->
+    <div id="nav-placeholder"></div>
+
+    <div class="bg-grid"></div>
+<div class="bg-particles" id="particles"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-eyebrow"><span class="dot"></span> Tyler Moncrieff</div>
+        <h1><span class="g">Rank</span><span class="c">Ops</span></h1>
+        <p class="header-sub">Your digital command center. Every business, project, and platform — organized in one place.</p>
+        <p class="header-tagline">Rank. Optimize. Dominate.</p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section" style="opacity:0; animation: fade-up 0.6s var(--ease-out-expo) 0.5s forwards;">
+        <div class="section-label services">Services</div>
+        <div class="links-grid">
+            <a href="home.html?utm_source=hub&utm_medium=referral&utm_campaign=hub_consolidation" class="link-card services">
+                <span class="link-icon">⚡</span>
+                <div class="link-info"><div class="link-title">RankOps</div><div class="link-desc">AI Automation, Websites & Digital Growth Agency</div></div>
+                <span class="link-url">rankops.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="webfix24.html" class="link-card services">
+                <span class="link-icon">🔧</span>
+                <div class="link-info"><div class="link-title">WebFix24</div><div class="link-desc">Emergency Website Repairs in 24 Hours</div></div>
+                <span class="link-url">rankops.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://website48.pages.dev/" target="_blank" class="link-card services">
+                <span class="link-icon">🚀</span>
+                <div class="link-info"><div class="link-title">WebSite48</div><div class="link-desc">Custom Websites Delivered in 48 Hours</div></div>
+                <span class="link-url">website48.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="seo.html" class="link-card services">
+                <span class="link-icon">📈</span>
+                <div class="link-info"><div class="link-title">SEO / GEO Services</div><div class="link-desc">Rank #1 on Google, Maps & AI Search</div></div>
+                <span class="link-url">SEO Services</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="tbuilds.html" class="link-card services">
+                <span class="link-icon">🛠️</span>
+                <div class="link-info"><div class="link-title">T-Builds Apps</div><div class="link-desc">Custom Web Applications & Automations</div></div>
+                <span class="link-url">rankops.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="section" style="opacity:0; animation: fade-up 0.6s var(--ease-out-expo) 0.7s forwards;">
+        <div class="section-label products">Products & Content</div>
+        <div class="links-grid">
+            <a href="https://www.amazon.com/author/tylerm" target="_blank" class="link-card products">
+                <span class="link-icon">📚</span>
+                <div class="link-info"><div class="link-title">Amazon Author</div><div class="link-desc">Books by Tyler Moncrieff</div></div>
+                <span class="link-url">amazon.com/author/tylerm</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://gptpromptvault.pages.dev/" target="_blank" class="link-card products">
+                <span class="link-icon">🔮</span>
+                <div class="link-info"><div class="link-title">GPT Prompt Vault</div><div class="link-desc">500+ Curated AI Prompts</div></div>
+                <span class="link-url">gptpromptvault.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="thethinkery.html" class="link-card products">
+                <span class="link-icon">🧠</span>
+                <div class="link-info"><div class="link-title">The Thinkery</div><div class="link-desc">AI Strategy & Insights</div></div>
+                <span class="link-url">rankops.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://tmoncrieff.gumroad.com" target="_blank" class="link-card products">
+                <span class="link-icon">🎁</span>
+                <div class="link-info"><div class="link-title">Gumroad Store</div><div class="link-desc">Digital Products & Templates</div></div>
+                <span class="link-url">tmoncrieff.gumroad.com</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="aicrashcourse.html" class="link-card products">
+                <span class="link-icon">🎓</span>
+                <div class="link-info"><div class="link-title">30-Day AI Crash Course</div><div class="link-desc">Build, Deploy & Monetize AI in 30 Days</div></div>
+                <span class="link-url">AI Master Class</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://www.buy-sell.land" target="_blank" class="link-card products">
+                <span class="link-icon">🏠</span>
+                <div class="link-info"><div class="link-title">Buy Sell Land LLC</div><div class="link-desc">Vacant Land Wholesaling</div></div>
+                <span class="link-url">buy-sell.land</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://m3ffmusic.pages.dev/" target="_blank" class="link-card products">
+                <span class="link-icon">🎵</span>
+                <div class="link-info"><div class="link-title">D3FFM3FFR3CORDZ</div><div class="link-desc">Record Label / M3FF MUSIC</div></div>
+                <span class="link-url">m3ffmusic.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="section" style="opacity:0; animation: fade-up 0.6s var(--ease-out-expo) 0.9s forwards;">
+        <div class="section-label social">Social & Community</div>
+        <div class="links-grid">
+            <a href="https://youtube.com/@fatherdust" target="_blank" class="link-card social">
+                <span class="link-icon">🎬</span>
+                <div class="link-info"><div class="link-title">YouTube</div><div class="link-desc">@FatherDust — AI tutorials & builds</div></div>
+                <span class="link-url">youtube.com/@fatherdust</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://linkedin.com/in/tyler-moncrieff" target="_blank" class="link-card social">
+                <span class="link-icon">💼</span>
+                <div class="link-info"><div class="link-title">LinkedIn</div><div class="link-desc">Tyler Moncrieff — Professional Network</div></div>
+                <span class="link-url">linkedin.com/in/tyler-moncrieff</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://calendly.com/tmoncrieff94/30min" target="_blank" class="link-card social">
+                <span class="link-icon">📅</span>
+                <div class="link-info"><div class="link-title">Calendly</div><div class="link-desc">Book a 1:1 Call (30 min)</div></div>
+                <span class="link-url">calendly.com/tmoncrieff94</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="mailto:getrankops@gmail.com" class="link-card social">
+                <span class="link-icon">📬</span>
+                <div class="link-info"><div class="link-title">Email</div><div class="link-desc">getrankops@gmail.com</div></div>
+                <span class="link-url">Direct Contact</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="section" style="opacity:0; animation: fade-up 0.6s var(--ease-out-expo) 1.1s forwards;">
+        <div class="section-label tools">CRM & Tools</div>
+        <div class="links-grid">
+            <a href="https://gum.new/gum/cmj925gm000a04jmeno138m" target="_blank" class="link-card tools">
+                <span class="link-icon">📊</span>
+                <div class="link-info"><div class="link-title">Vacant Land CRM</div><div class="link-desc">Southeast Markets Pipeline</div></div>
+                <span class="link-url">gum.new</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://automatically.pages.dev/" target="_blank" class="link-card tools">
+                <span class="link-icon">🤖</span>
+                <div class="link-info"><div class="link-title">AI Automation</div><div class="link-desc">Automation Landing Page</div></div>
+                <span class="link-url">automatically.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://aiautoally.b12sites.com/" target="_blank" class="link-card tools">
+                <span class="link-icon">🏢</span>
+                <div class="link-info"><div class="link-title">AI AutoAlly</div><div class="link-desc">Automation Company</div></div>
+                <span class="link-url">aiautoally.b12sites.com</span>
+                <span class="link-arrow">→</span>
+            </a>
+            <a href="https://mbkid.pages.dev/" target="_blank" class="link-card tools">
+                <span class="link-icon">🎰</span>
+                <div class="link-info"><div class="link-title">Affiliate Funnel</div><div class="link-desc">MBKID System</div></div>
+                <span class="link-url">mbkid.pages.dev</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2026 RankOps · Tyler Moncrieff · Charlotte, NC</p>
+        <p class="tagline">// Rank // Optimize // Dominate //</p>
+    </div>
+
+</div>
+
+<script>
+    const pc = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div'); p.className = 'p';
+        p.style.left = Math.random()*100+'%';
+        p.style.animationDelay = Math.random()*20+'s';
+        p.style.animationDuration = (15+Math.random()*15)+'s';
+        p.style.background = ['#39FF14','#00F0FF','#FF2E97','#A855F7'][Math.floor(Math.random()*4)];
+        pc.appendChild(p);
+    }
+</script>
+<script src="shared-nav.js"></script>    <script src="components/components.js"></script>
+    
+
+</body>
+</html>
