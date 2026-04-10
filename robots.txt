@@ -1,6 +1,6 @@
 # robots.txt
-# RankOps — https://rankops.pages.dev
-# Updated: 2026-01-01
+# RankOps — https://rankops.net
+# Updated: 2026-04-09
 # Charlotte, NC SEO, GEO & AI Search Optimization Agency
 
 # ═══════════════════════════════════════════════════════════
@@ -233,10 +233,10 @@ Disallow: /
 # SITEMAP LOCATION
 # ═══════════════════════════════════════════════════════════
 
-Sitemap: https://rankops.pages.dev/sitemap.xml
+Sitemap: https://rankops.net/sitemap.xml
 
 # ═══════════════════════════════════════════════════════════
 # HOST DECLARATION
 # ═══════════════════════════════════════════════════════════
 
-Host: https://rankops.pages.dev
+Host: https://rankops.net
