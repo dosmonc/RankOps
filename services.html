@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RankOps Mobile App | SEO, GEO & AI Automation in Your Pocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RankOps Mobile gives Charlotte businesses a real-time view of SEO, GEO, AI search rankings, and automations. Track campaigns, view leads, and chat with your operator from your phone.">
+  <meta name="keywords" content="RankOps mobile app, SEO mobile app, GEO mobile, AI search app, Charlotte SEO app, RankOps Mobile, AI agents app, automation app">
+  <link rel="canonical" href="https://rankops.net/mobile">
+  <meta property="og:title" content="RankOps Mobile App | SEO, GEO & AI Automation in Your Pocket">
+  <meta property="og:description" content="Track SEO, GEO and AI search campaigns, see leads, and talk to your RankOps operator from your phone.">
+  <meta property="og:url" content="https://rankops.net/mobile">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RankOps">
+  <meta name="robots" content="index,follow">
+
+  <!-- JSON-LD for SoftwareApplication / MobileApp -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "RankOps Mobile",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "BusinessApplication",
+    "description": "RankOps Mobile is the companion app for RankOps clients. It lets Charlotte businesses track SEO, GEO, AI search campaigns, leads, and automations in real time.",
+    "url": "https://rankops.net/mobile",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RankOps",
+      "url": "https://rankops.net"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Included with active RankOps monthly packages."
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.95);
+      --panel-soft: rgba(15, 23, 42, 0.9);
+      --border: rgba(51, 65, 85, 0.9);
+      --border-strong: #22c55e;
+      --text-main: #f9fafb;
+      --text-sub: #cbd5f5;
+      --text-muted: #9ca3af;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --accent-alt: #0ea5e9;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #020617 0, #020617 32%, #020617 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a { color: var(--accent-alt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrapper {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3.5rem;
+    }
+
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0 1rem;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: radial-gradient(circle at top, rgba(2,6,23,0.96), rgba(2,6,23,0.95));
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .chip {
+      font-size: 0.65rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav.site-nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    nav.site-nav a { color: var(--text-muted); }
+    nav.site-nav a:hover { color: var(--accent); }
+
+    .cta-top {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: #022c22;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.26);
+    }
+    .cta-top:hover {
+      background: #4ade80;
+      border-color: #4ade80;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      padding: 2.5rem 0 2.75rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a5f3fc;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 3vw, 2.3rem);
+      letter-spacing: -0.03em;
+      margin: 0 0 0.75rem;
+    }
+
+    .hero-highlight { color: var(--accent); }
+
+    .hero-lead {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      max-width: 32rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.1s ease-out, border-color 0.1s ease-out;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #052e16;
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.2);
+    }
+    .btn-primary:hover {
+      background: #4ade80;
+      border-color: #4ade80;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text-sub);
+    }
+    .btn-outline:hover {
+      border-color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.95);
+      text-decoration: none;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-pill-dot {
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .phone-frame {
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #020617 100%);
+      border-radius: 1.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.7rem;
+      max-width: 17rem;
+      margin-left: auto;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+    }
+
+    .phone-inner {
+      border-radius: 1.35rem;
+      background: var(--panel);
+      padding: 0.75rem 0.75rem 0.9rem;
+      border: 1px solid rgba(30, 64, 175, 0.4);
+      font-size: 0.72rem;
+    }
+
+    .phone-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+      font-size: 0.65rem;
+    }
+
+    .phone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.6rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+    }
+
+    .phone-heading {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0 0 0.2rem;
+    }
+
+    .phone-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin: 0 0 0.6rem;
+    }
+
+    .phone-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 0.55rem;
+      padding: 0.3rem 0.35rem;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+    }
+
+    .metric-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .metric-value {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .metric-trend {
+      font-size: 0.6rem;
+      color: #4ade80;
+    }
+
+    .phone-list {
+      margin: 0.4rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(30, 41, 59, 1);
+      padding-top: 0.35rem;
+    }
+
+    .phone-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.68rem;
+      padding: 0.25rem 0;
+      color: var(--text-sub);
+    }
+
+    .phone-tag {
+      font-size: 0.6rem;
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+      margin: 0 0 0.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      font-size: 0.83rem;
+      color: var(--text-sub);
+      margin: 0;
+      max-width: 32rem;
+    }
+
+    .section-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      max-width: 20rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--panel-soft);
+      border-radius: 1.15rem;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1rem 1.3rem;
+      font-size: 0.8rem;
+      min-height: 0;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin: 0 0 0.2rem;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      margin-bottom: 0.45rem;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.76rem;
+      color: #e5e7eb;
+    }
+
+    .card-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill {
+      padding: 0.12rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .badge {
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-dot {
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .cta-section {
+      margin-top: 2.4rem;
+      padding: 1.2rem 1rem 1.4rem;
+      background: var(--panel);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .cta-section p {
+      margin: 0 0 0.3rem;
+      max-width: 34rem;
+      color: var(--text-sub);
+    }
+
+    .cta-section small {
+      color: var(--text-muted);
+    }
+
+    footer.site-footer {
+      padding: 1rem 0 0;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(15, 23, 42, 1);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: minmax(0, 1fr); }
+      .phone-frame { margin: 0 auto; }
+    }
+
+    @media (max-width: 640px) {
+      nav.site-nav { display: none; }
+      .wrapper { padding-inline: 1rem; }
+      .grid-3 { grid-template-columns: minmax(0, 1fr); }
+      .cta-section { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <div class="logo">RankOps</div>
+        <div class="chip">Mobile</div>
+      </div>
+      <nav class="site-nav">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="/services">Services</a>
+      </nav>
+      <a href="#download" class="cta-top">Get the app →</a>
+    </header>
+
+    <!-- Hero -->
+    <section aria-labelledby="mobile-hero-heading">
+      <div class="hero">
+        <div>
+          <p class="hero-kicker">RankOps Mobile · Companion app</p>
+          <h1 id="mobile-hero-heading">
+            SEO, GEO &amp; AI <span class="hero-highlight">in your pocket</span> — not buried in another dashboard.
+          </h1>
+          <p class="hero-lead">
+            RankOps Mobile gives Charlotte businesses a real‑time view of SEO, GEO, AI search campaigns, leads, and automations — from the same operator that runs your RankOps services. [web:11][web:22][web:82]
+          </p>
+          <p class="hero-meta">
+            Track rankings, see lead flow, approve changes, and chat about strategy without logging into five tools. Included with active RankOps monthly packages at no extra cost.
+          </p>
+          <div class="hero-actions">
+            <a href="#download" class="btn btn-primary">Download or request access</a>
+            <a href="/services" class="btn btn-outline">See services &amp; pricing</a>
+          </div>
+          <div class="hero-pills">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Live SEO, GEO &amp; AI visibility</span>
+            </div>
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Lead &amp; call tracking on your phone</span>
+            </div>
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Chat with your RankOps operator</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <aside class="phone-frame" aria-label="RankOps Mobile preview">
+          <div class="phone-inner">
+            <div class="phone-status">
+              <span>RankOps Mobile</span>
+              <span>Charlotte, NC</span>
+            </div>
+            <div class="phone-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Live GEO &amp; AI search</span>
+            </div>
+            <p class="phone-heading">Today at a glance</p>
+            <p class="phone-sub">Key metrics across SEO, GEO, AI agents, and leads.</p>
+            <div class="phone-metrics">
+              <div class="metric">
+                <div class="metric-label">AI mentions</div>
+                <div class="metric-value">+7</div>
+                <div class="metric-trend">+3 this week</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Leads</div>
+                <div class="metric-value">24</div>
+                <div class="metric-trend">+18%</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Page 1 keys</div>
+                <div class="metric-value">19</div>
+                <div class="metric-trend">+4</div>
+              </div>
+            </div>
+            <ul class="phone-list">
+              <li>
+                <span>“Charlotte GEO expert”</span>
+                <span class="phone-tag">AI search</span>
+              </li>
+              <li>
+                <span>“SEO &amp; AI automation”</span>
+                <span class="phone-tag">Organic</span>
+              </li>
+              <li>
+                <span>AI answering leads</span>
+                <span class="phone-tag">Calls</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" aria-labelledby="features-heading">
+      <div class="section-header">
+        <div>
+          <h2 id="features-heading">What RankOps Mobile does</h2>
+          <p>
+            The app is built as a companion to your RankOps monthly package. It surfaces live SEO, GEO, AI search ranking, and automation data without you ever touching a desktop. [web:11][web:82]
+          </p>
+        </div>
+        <p class="section-note">
+          This is not another “SEO tool.” It’s a control panel for the work we’re already doing together.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Live SEO &amp; GEO overview</h3>
+          <p class="card-desc">See how your website and content are performing in Google and AI search.</p>
+          <ul class="card-list">
+            <li>Daily view of key SEO and GEO metrics</li>
+            <li>Track rankings for your core Charlotte keywords</li>
+            <li>Monitor AI search visibility and citations</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">SEO dashboard</span>
+            <span class="pill">GEO monitoring</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Lead &amp; call tracking</h3>
+          <p class="card-desc">Know what your traffic is doing — calls, forms, and booked appointments.</p>
+          <ul class="card-list">
+            <li>Simple lead counts and source breakdowns</li>
+            <li>See call volume from AI answering and landing pages</li>
+            <li>Tag high‑value deals to measure real ROI</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Leads</span>
+            <span class="pill">Attribution</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Chat with your operator</h3>
+          <p class="card-desc">Skip another meeting. Talk through strategy right in the app.</p>
+          <ul class="card-list">
+            <li>Message directly about ideas and changes</li>
+            <li>Approve AI agents, campaigns, or site tweaks</li>
+            <li>Share quick context with screenshots or notes</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Operator chat</span>
+            <span class="pill">Approvals</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" aria-labelledby="how-heading">
+      <div class="section-header">
+        <div>
+          <h2 id="how-heading">How RankOps Mobile fits into your stack</h2>
+          <p>
+            The app isn’t a standalone product. It rides on top of the SEO, GEO, AI agents, and automation work spelled out on the RankOps services page — and gives you a clean front row seat. [web:11][web:22][web:16]
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <span class="badge"><span class="badge-dot"></span> For existing RankOps clients</span>
+          <h3>Included with monthly packages</h3>
+          <p class="card-desc">
+            If you’re on Starter Search Ops, AI‑Ready Local Dominance, or Full Stack Growth Ops, RankOps Mobile is part of the deal — not an upsell.
+          </p>
+          <ul class="card-list">
+            <li>Connects to the same SEO, GEO &amp; AI search stack we run for you</li>
+            <li>Pulls metrics from your website, AI agents, and automation workflows</li>
+            <li>Helps you see cause and effect between campaigns and leads</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Fast setup, minimal friction</h3>
+          <p class="card-desc">
+            Once you’re onboarded as a RankOps client, the app is configured with your domains, campaigns, and goals.
+          </p>
+          <ul class="card-list">
+            <li>We connect your site, analytics, and call tracking once</li>
+            <li>Your metrics and key GEO / AI queries are pre‑loaded</li>
+            <li>You receive a secure invite link to log in from iOS or Android</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="section-header">
+        <div>
+          <h2 id="faq-heading">RankOps Mobile FAQ</h2>
+          <p>
+            A few quick answers to how the app works and who it’s for.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Is the app free?</h3>
+          <p class="card-desc">
+            Yes — RankOps Mobile is included with active RankOps monthly packages. There’s no separate subscription.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Do I need technical skills?</h3>
+          <p class="card-desc">
+            No. The app is built for owners and operators. You’ll see clear metrics, lead counts, and a simple chat thread — not raw data dumps.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Can I use it without services?</h3>
+          <p class="card-desc">
+            Not yet. The app is tightly coupled to RankOps SEO, GEO, AI agents, and automations. If you want access, start with a package on the services page.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Download / CTA -->
+    <section id="download" aria-labelledby="download-heading">
+      <div class="cta-section">
+        <div>
+          <h2 id="download-heading" style="font-size:1.1rem; margin:0 0 0.2rem; letter-spacing:-0.02em;">Get RankOps Mobile</h2>
+          <p>
+            If you’re already a RankOps client, ask for your app invite link and we’ll send instructions for iOS and Android. If you’re not a client yet, start on the <a href="/services">services &amp; pricing</a> page and we’ll bundle the app into your onboarding.
+          </p>
+          <small>Built for Charlotte businesses that need SEO, GEO and AI search handled — and a simple way to see it all from their phone. [web:11][web:22]</small>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; min-width:12rem;">
+          <a href="/services#contact" class="btn btn-primary">Become a RankOps client</a>
+          <a href="/services" class="btn btn-outline">View services &amp; pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> RankOps · Charlotte, North Carolina.</p>
+      <p>RankOps Mobile is the companion app for RankOps SEO, GEO &amp; AI services.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
